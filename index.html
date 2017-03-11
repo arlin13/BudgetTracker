@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <title>Budget Tracker</title>
+</head>
+
+<body ng-controller="BudgetController as budgetCtrl">
+    <div id="container">
+        <!-- header -->
+        <div class="jumbotron">
+            <h1>Budget Tracker</h1>
+        </div>
+        <!-- budget tracker -->
+        <div id="budgetTrackerDiv" class="row">
+            <div class="col-md-1">
+            </div>
+            <!-- income div -->
+            <div id="incomesDiv" class="col-md-5">
+                <h4>Income Entries</h4>
+                <form>
+                    <label>Description</label><br>
+                    <input type="text" placeholder=":)" value="" ng-model="budgetCtrl.incomeDescription"></input><br>
+                    <br>
+                    <label>Amount</label><br>
+                    <input type="number" value="0.00" ng-model="budgetCtrl.incomeAmount"></input><br>
+                    <br>
+                    <button type="button" ng-click="budgetCtrl.addIncome()">+ Add Income</button>
+                </form>
+                <hr>
+                <table class="table">
+                    <tr>
+                        <th></th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                    </tr>
+                    <tr ng-repeat="income in budgetCtrl.incomeArray">
+                        <td>{{$index+1}}</td>
+                        <td>{{income.description}}</td>
+                        <td>{{income.amount}}</td>
+                    </tr>
+                </table>
+            </div>
+            <!-- expenses div -->
+            <div id="expensesDiv" class="col-md-5">
+                <h4>Expense Entries</h4>
+                <form>
+                    <label>Description</label><br>
+                    <input type="text" placeholder=":)" ng-model="budgetCtrl.expenseDescription"></input><br>
+                    <br>
+                    <label>Amount</label><br>
+                    <input type="number" value="0.00" ng-model="budgetCtrl.expenseAmount"></input><br>
+                    <br>
+                    <button type="button" ng-click="budgetCtrl.addExpense()">+ Add Expense</button>
+                </form>
+                <hr>
+                <table class="table">
+                  <tr>
+                    <th></th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                  </tr>
+                  <tr ng-repeat="expense in budgetCtrl.expenseArray">
+                    <td>{{$index+1}}</td>
+                    <td>{{expense.description}}</td>
+                    <td>{{expense.amount}}</td>
+                  </tr>
+                </table>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+        <!-- summary -->
+        <div id="summaryDiv">
+            <div>
+                <h4>Summary</h4>
+            </div>
+            <div class="row">
+              <div class="col-md-1">
+              </div>
+                <div id="totalIncomeDiv" class="col-md-5">
+                    <p>Total Income</p>
+                    <p>{{budgetCtrl.totalIncome}}</p>
+                </div>
+                <div id="totalExpenseDiv" class="col-md-5">
+                  <p>Total Expense</p>
+                  <p>{{budgetCtrl.totalExpense}}</p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <div>
+                <p>Left after spending:</p>
+                <p>{{budgetCtrl.totalLeft}}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- scripts -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/budget/budget.controller.js"></script>
+</body>
+
+</html>
