@@ -20,17 +20,19 @@ button {
     border-style: none;
 }
 
-img{
-  height: 10px;
+img {
+    height: 10px;
 }
 
-i{
-  width: 35px;
-  background-color: lightgray;
-  padding: 5px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+i {
+    width: 35px;
+    background-color: lightgray;
+    padding: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
+
+
 /*Divs*/
 
 #budgetTrackerDiv {
@@ -92,7 +94,7 @@ i{
     color: #3183B9;
 }
 
-#summaryDiv label{
-  text-align: center;
-  display: block;
+#summaryDiv label {
+    text-align: center;
+    display: block;
 }
