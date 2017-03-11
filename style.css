@@ -1,26 +1,98 @@
-h1{
+/*General controls*/
+
+h1 {
+    text-align: center;
+}
+
+h4 {
+    padding: 10px;
+}
+
+p {
+    text-align: center;
+}
+
+button {
+    /*color: white;*/
+    height: 35px;
+    width: 100%;
+    border-radius: 7px;
+    border-style: none;
+}
+
+img{
+  height: 10px;
+}
+
+i{
+  width: 35px;
+  background-color: lightgray;
+  padding: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+/*Divs*/
+
+#budgetTrackerDiv {
+    margin: 0 auto;
+    width: 100%;
+}
+
+
+/**Income**/
+
+#incomesDiv {
+    border-style: solid;
+    border-color: #DFF0D8;
+    border-radius: 15px;
+}
+
+#incomesDiv h4 {
+    background-color: #DFF0D8;
+    color: #5CB85C;
+}
+
+#incomesDiv button {
+    background-color: #5CB85C;
+    color: white;
+}
+
+
+/**Expense**/
+
+#expensesDiv {
+    border-style: solid;
+    border-color: #F2DEDE;
+    border-radius: 15px;
+}
+
+#expensesDiv h4 {
+    background-color: #F2DEDE;
+    color: #C9302C;
+}
+
+#expensesDiv button {
+    background-color: #C9302C;
+    color: white;
+}
+
+
+/**Summary**/
+
+#summaryDiv {
+    margin: 0 auto;
+    width: 50%;
+    border-style: solid;
+    border-color: lightblue;
+    border-radius: 15px;
+}
+
+#summaryDiv h4 {
+    background-color: #D9EDF7;
+    color: #3183B9;
+}
+
+#summaryDiv label{
   text-align: center;
-}
-
-p{
-  text-align: center;
-}
-
-#budgetTrackerDiv{
-  margin: 0 auto;
-  width: 100%;
-}
-
-#incomesDiv{
-  background-color: lightgreen;
-}
-
-#expensesDiv{
-  background-color: pink;
-}
-
-#summaryDiv{
-  margin: 0 auto;
-  width: 50%;
-  background-color: yellow;
+  display: block;
 }

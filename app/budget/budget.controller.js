@@ -54,4 +54,16 @@ function BudgetController() {
     vm.calculateTotalLeft = function() {
         vm.totalLeft = vm.totalIncome - vm.totalExpense;
     }
+
+    vm.deleteIncome = function(index){
+      vm.incomeArray.splice(index, 1);
+      calculateIncome();
+      calculateTotalLeft();
+    }
+
+    vm.deleteExpense = function(index){
+      vm.expenseArray.splice(index, 1);
+      calculateExpense();
+      calculateTotalLeft();
+    }
 }

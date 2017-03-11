@@ -12,6 +12,7 @@
         <div class="jumbotron">
             <h1>Budget Tracker</h1>
         </div>
+
         <!-- budget tracker -->
         <div id="budgetTrackerDiv" class="row">
             <div class="col-md-1">
@@ -20,25 +21,30 @@
             <div id="incomesDiv" class="col-md-5">
                 <h4>Income Entries</h4>
                 <form>
-                    <label>Description</label><br>
-                    <input type="text" placeholder=":)" value="" ng-model="budgetCtrl.incomeDescription"></input><br>
-                    <br>
-                    <label>Amount</label><br>
-                    <input type="number" value="0.00" ng-model="budgetCtrl.incomeAmount"></input><br>
-                    <br>
-                    <button type="button" ng-click="budgetCtrl.addIncome()">+ Add Income</button>
+                    <div class="form-group">
+                        <label>Description</label><br>
+                        <input type="text" class="form-control" ng-model="budgetCtrl.incomeDescription"></input>
+                    </div>
+                    <div class="form-group">
+                        <label>Amount</label><br>
+                        <!-- <i>$</i> -->
+                        <input type="number" value="0.00" class="form-control" ng-model="budgetCtrl.incomeAmount"></input>
+                    </div>
+                    <button id="incomeButton" type="button" ng-click="budgetCtrl.addIncome()">+ Add Income</button>
                 </form>
                 <hr>
-                <table class="table">
+                <table class="table" ng-show="budgetCtrl.incomeArray.length>0">
                     <tr>
                         <th></th>
                         <th>Description</th>
                         <th>Amount</th>
+                        <th></th>
                     </tr>
                     <tr ng-repeat="income in budgetCtrl.incomeArray">
                         <td>{{$index+1}}</td>
                         <td>{{income.description}}</td>
                         <td>{{income.amount}}</td>
+                        <td><img src="Images/delete.png" class="icon" ng-click="budgetCtrl.deleteIncome($index)"></td>
                     </tr>
                 </table>
             </div>
@@ -46,52 +52,61 @@
             <div id="expensesDiv" class="col-md-5">
                 <h4>Expense Entries</h4>
                 <form>
-                    <label>Description</label><br>
-                    <input type="text" placeholder=":)" ng-model="budgetCtrl.expenseDescription"></input><br>
-                    <br>
-                    <label>Amount</label><br>
-                    <input type="number" value="0.00" ng-model="budgetCtrl.expenseAmount"></input><br>
-                    <br>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" class="form-control" ng-model="budgetCtrl.expenseDescription"></input>
+                    </div>
+                    <div class="form-group">
+                        <label>Amount</label>
+                        <input type="number" value="0.00" class="form-control" ng-model="budgetCtrl.expenseAmount"></input>
+
+                    </div>
                     <button type="button" ng-click="budgetCtrl.addExpense()">+ Add Expense</button>
                 </form>
                 <hr>
-                <table class="table">
-                  <tr>
-                    <th></th>
-                    <th>Description</th>
-                    <th>Amount</th>
-                  </tr>
-                  <tr ng-repeat="expense in budgetCtrl.expenseArray">
-                    <td>{{$index+1}}</td>
-                    <td>{{expense.description}}</td>
-                    <td>{{expense.amount}}</td>
-                  </tr>
+                <table class="table" ng-show="budgetCtrl.expenseArray.length>0">
+                    <tr>
+                        <th></th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th></th>
+                    </tr>
+                    <tr ng-repeat="expense in budgetCtrl.expenseArray">
+                        <td>{{$index+1}}</td>
+                        <td>{{expense.description}}</td>
+                        <td>{{expense.amount}}</td>
+                        <td><img src="Images/delete.png" class="icon" ng-click="budgetCtrl.deleteExpense($index)"></td>
+                    </tr>
                 </table>
             </div>
             <div class="col-md-1">
             </div>
         </div>
+
+        <br>
+        <br>
+
         <!-- summary -->
         <div id="summaryDiv">
             <div>
                 <h4>Summary</h4>
             </div>
             <div class="row">
-              <div class="col-md-1">
-              </div>
+                <div class="col-md-1">
+                </div>
                 <div id="totalIncomeDiv" class="col-md-5">
-                    <p>Total Income</p>
+                    <label>Total Income</label>
                     <p>{{budgetCtrl.totalIncome}}</p>
                 </div>
                 <div id="totalExpenseDiv" class="col-md-5">
-                  <p>Total Expense</p>
-                  <p>{{budgetCtrl.totalExpense}}</p>
+                    <label>Total Expense</label>
+                    <p>{{budgetCtrl.totalExpense}}</p>
                 </div>
                 <div class="col-md-1">
                 </div>
             </div>
             <div>
-                <p>Left after spending:</p>
+                <label>Left after spending:</label>
                 <p>{{budgetCtrl.totalLeft}}</p>
             </div>
         </div>
